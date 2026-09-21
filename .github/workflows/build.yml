@@ -1,0 +1,47 @@
+name: Build DS4Windows Monitor
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Publish x64
+        run: >
+          dotnet publish .\DS4WindowsMonitor.csproj
+          -c Release
+          -r win-x64
+          --self-contained false
+          /p:PublishSingleFile=true
+          -o .\publish
+
+      - name: Package
+        shell: pwsh
+        run: |
+          Copy-Item .\README.md .\publish\README.md
+          Compress-Archive -Path .\publish\* -DestinationPath .\DS4WindowsMonitor-win-x64.zip -Force
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: DS4WindowsMonitor-win-x64
+          path: .\DS4WindowsMonitor-win-x64.zip
+          if-no-files-found: error
+          retention-days: 30
