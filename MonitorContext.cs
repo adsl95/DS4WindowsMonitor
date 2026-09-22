@@ -152,7 +152,7 @@ internal sealed class MonitorService
 
     public async Task RunAsync()
     {
-        Log($"START monitorVersion=1.0.0 root=\"{root}\" fallbackRoot={AppPaths.UsingFallbackRoot}");
+        Log($"START monitorVersion=1.0.1 root=\"{root}\" fallbackRoot={AppPaths.UsingFallbackRoot}");
         Log($"CONFIG poll={config.PollIntervalMs}ms metrics={config.MetricsIntervalMs}ms uiTimeout={config.UiPingTimeoutMs}ms slow={config.SlowUiThresholdMs}ms hang={config.HungAfterMs}ms dumpOnHang={config.CaptureDumpOnHang} dumpFlags=0x{config.DumpTypeFlags:X8}");
         Log("SAFETY: monitor only targets DS4Windows.exe. It does not inject DLLs, hook game processes, enumerate game memory, or open game-process handles.");
 

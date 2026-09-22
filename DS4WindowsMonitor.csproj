@@ -9,9 +9,9 @@
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     <AssemblyName>DS4WindowsMonitor</AssemblyName>
     <RootNamespace>DS4WindowsMonitor</RootNamespace>
-    <Version>1.0.0</Version>
-    <FileVersion>1.0.0</FileVersion>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <Version>1.0.1</Version>
+    <FileVersion>1.0.1</FileVersion>
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
     <PublishSingleFile>true</PublishSingleFile>
     <SelfContained>false</SelfContained>
     <PublishTrimmed>false</PublishTrimmed>
