@@ -4,7 +4,7 @@ internal sealed record MonitorSample(
     DateTimeOffset Timestamp,
     int Pid,
     string UiState,
-    long UiLatencyMs,
+    double UiLatencyMs,
     double CpuPercent,
     long WorkingSetMb,
     long PrivateMb,
